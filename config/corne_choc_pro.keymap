@@ -73,10 +73,10 @@
         extra_layer_1 {
             display-name = "EXTRA 1";
             bindings = <
-&trans    &trans  &trans  &kp K_MUTE         &trans  &trans  &trans  &trans  &trans         &trans        &trans  &trans  &trans  &trans
-&trans    &trans  &trans  &kp C_VOLUME_UP    &trans  &trans  &trans  &trans  &kp LC(MINUS)  &trans        &trans  &trans  &trans  &trans
-&kp CAPS  &trans  &trans  &kp C_VOLUME_DOWN  &trans  &trans                  &trans         &kp LC(PLUS)  &trans  &trans  &trans  &trans
-                          &trans             &trans  &trans                  &trans         &trans        &trans
+&trans    &trans  &trans  &kp K_MUTE         &trans  &trans  &trans  &trans  &trans         &trans           &trans  &trans  &trans  &trans
+&trans    &trans  &trans  &kp C_VOLUME_UP    &trans  &trans  &trans  &trans  &kp LC(MINUS)  &trans           &trans  &trans  &trans  &trans
+&kp CAPS  &trans  &trans  &kp C_VOLUME_DOWN  &trans  &trans                  &trans         &kp LC(KP_PLUS)  &trans  &trans  &trans  &trans
+                          &trans             &trans  &trans                  &trans         &trans           &trans
             >;
         };
 
