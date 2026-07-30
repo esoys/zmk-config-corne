@@ -1,0 +1,133 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    chosen { zmk,physical-layout = &default_layout; };
+};
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            display-name = "COLEMAK";
+
+            // --------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | BSPC |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |  LALT |  RALT |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
+
+            bindings = <
+&kp TAB    &kp Q  &kp W  &kp F     &kp P  &kp B      &kp C_MUTE  &kp C_PP  &kp J    &kp L  &kp U      &kp Y    &kp SEMICOLON  &kp BSPC
+&kp LCTRL  &kp A  &kp R  &kp S     &kp T  &kp G      &kp LALT    &kp RALT  &kp M    &kp N  &kp E      &kp I    &kp O          &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C     &kp D  &kp V                            &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+                         &kp LGUI  &mo 2  &kp SPACE                        &kp RET  &mo 1  &kp RALT
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
+        };
+
+        lower_layer {
+            display-name = "NUMBER";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
+            // | CTRL | BT1 | BT2 | BT3 | BT4 | BT5   |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT | BTCR| RGB | RST | BOOT| Unlock|        |       |     |     |     |     |     |      |
+            //                    | GUI |     | SPC   |        | ENT   |     | ALT |
+
+            bindings = <
+&kp ESC    &kp N1                &kp N2                &kp N3                &kp N4                &kp N5          &kp LCTRL  &kp RCTRL  &kp N6         &kp N7           &kp N8    &kp N9  &kp N0  &kp BSPC
+&kp LCTRL  &kp LG(NUMBER_1)      &kp LG(NUMBER_2)      &kp LG(NUMBER_3)      &kp LG(NUMBER_4)      &kp LG(N5)      &kp LALT   &kp RALT   &kp LC(MINUS)  &none            &none     &none   &trans  &bl BL_TOG
+&kp LSHFT  &kp LG(LS(NUMBER_1))  &kp LS(LG(NUMBER_2))  &kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &kp LS(LG(N5))                        &none          &kp LC(KP_PLUS)  &none     &none   &none   &none
+                                                       &kp LGUI              &mo 3                 &kp SPACE                             &kp RET        &trans           &kp RALT
+            >;
+        };
+
+        raise_layer {
+            display-name = "SYMBOL";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
+            // | CTRL |     |     |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |               | ENT |     | ALT |
+
+            bindings = <
+&kp ESCAPE  &kp EXCL  &kp AT    &kp HASH      &kp DLLR   &kp PRCNT  &kp LCTRL  &kp RCTRL  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+&kp LCTRL   &trans    &trans    &kp UP_ARROW  &trans     &trans     &kp LALT   &kp RALT   &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT   &trans    &kp LEFT  &kp DOWN      &kp RIGHT  &trans                           &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+                                &kp LGUI      &trans     &kp SPACE                        &kp RET    &mo 3      &kp RALT
+            >;
+        };
+
+        extra_layer_1 {
+            display-name = "EXTRA 1";
+            bindings = <
+&kp ESCAPE  &kp F1  &kp F2      &kp F3             &kp F4  &kp F5  &trans  &trans  &kp F6         &kp F7           &kp F8  &kp F9      &kp F10     &kp F11
+&trans      &trans  &trans      &kp C_VOLUME_UP    &trans  &trans  &trans  &trans  &kp LC(MINUS)  &trans           &trans  &trans      &trans      &kp F12
+&kp CAPS    &trans  &kp K_MUTE  &kp C_VOLUME_DOWN  &trans  &trans                  &trans         &kp LC(KP_PLUS)  &trans  &bt BT_NXT  &bt BT_PRV  &bt BT_CLR_ALL
+                                &trans             &trans  &trans                  &trans         &trans           &trans
+            >;
+        };
+
+        extra_layer_2 {
+            display-name = "EXTRA 2";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans  &trans
+            >;
+        };
+
+        extra_layer_3 {
+            display-name = "EXTRA 3";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans  &trans
+            >;
+        };
+
+        extra_layer_4 {
+            display-name = "EXTRA 4";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans  &trans
+            >;
+        };
+
+        extra_layer_5 {
+            display-name = "EXTRA 5";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans  &trans
+            >;
+        };
+
+        extra_layer_6 {
+            display-name = "EXTRA 6";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans  &trans
+            >;
+        };
+    };
+};
