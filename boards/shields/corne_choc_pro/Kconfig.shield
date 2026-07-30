@@ -1,4 +1,0 @@
-config SHIELD_CORNE_CHOC_PRO
-    def_bool $(shields_list_contains, corne_choc_pro)
-
-
