@@ -11,17 +11,23 @@ include:
     snippet: studio-rpc-usb-uart
     shield: nice_view
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+    
   - board: corne_choc_pro_right
     shield: nice_view
     snippet: studio-rpc-usb-uart
   
   - board: seeeduino_xiao_ble
     shield: corne_dongle
+    
   - board: corne_choc_pro_left
     shield: settings_reset
     snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    
   - board: corne_choc_pro_right
     shield: settings_reset
     snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    
   - board: seeeduino_xiao_ble
     shield: settings_reset
