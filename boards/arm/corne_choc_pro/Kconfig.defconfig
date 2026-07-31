@@ -4,12 +4,17 @@
 if BOARD_CORNE_CHOC_PRO_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "Corne Choc Pro"
-
-#config ZMK_SPLIT_ROLE_CENTRAL
-#    default y
+    default "Corne Choc Pro Left"
 
 endif # BOARD_CORNE_CHOC_PRO_LEFT
+
+
+if BOARD_CORNE_CHOC_PRO_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Corne Choc Pro Right"
+
+endif # BOARD_CORNE_CHOC_PRO_RIGHT
 
 if BOARD_CORNE_CHOC_PRO_LEFT || BOARD_CORNE_CHOC_PRO_RIGHT 
 
