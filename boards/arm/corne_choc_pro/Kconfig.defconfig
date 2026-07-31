@@ -4,17 +4,10 @@
 if BOARD_CORNE_CHOC_PRO_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Corne_L"
+    default "Corne Choc Pro"
 
 endif # BOARD_CORNE_CHOC_PRO_LEFT
 
-
-if BOARD_CORNE_CHOC_PRO_RIGHT
-
-config ZMK_KEYBOARD_NAME
-    default "Corne_R"
-
-endif # BOARD_CORNE_CHOC_PRO_RIGHT
 
 if BOARD_CORNE_CHOC_PRO_LEFT || BOARD_CORNE_CHOC_PRO_RIGHT 
 
