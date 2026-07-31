@@ -10,6 +10,10 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    chosen { zmk,physical-layout = &default_layout; };
+};
+
+/ {
     keymap {
         compatible = "zmk,keymap";
 
