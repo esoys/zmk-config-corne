@@ -1,0 +1,18 @@
+/*
+ * TEMPORARY DEBUG OVERLAY - adds a USB serial console to the right board
+ * so we can read boot/BLE logs. Remove this file once debugging is done.
+ */
+
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+        label = "CDC_ACM_0";
+    };
+};
+
+/ {
+    chosen {
+        zephyr,console = &cdc_acm_uart0;
+        zephyr,shell-uart = &cdc_acm_uart0;
+    };
+};
