@@ -1,5 +1,5 @@
 config SHIELD_CORNE_CHOC_PRO_DONGLE_CENTRAL
-    def_bool $(shields_list_contains, corne_choc_pro_dongle_central)
+    def_bool $(shields_list_contains,corne_choc_pro_dongle_central)
 
 config SHIELD_CORNE_CHOC_PRO_DONGLE_PERIPHERAL_LEFT
     def_bool $(shields_list_contains,corne_choc_pro_dongle_peripheral_left)
