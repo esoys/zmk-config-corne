@@ -13,8 +13,6 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &default_layout;
-        zephyr,display = &oled;
-        zmk,underglow = &led_strip;
         zephyr,console = &cdc_acm_uart0;
         zephyr,shell-uart = &cdc_acm_uart0;
     };
@@ -125,7 +123,7 @@
 };
 
 &i2c0 {
-    status = "okay";
+    status = "disabled";
     compatible = "nordic,nrf-twi";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
@@ -162,7 +160,7 @@
 
 &spi3 {
     compatible = "nordic,nrf-spim";
-    status = "okay";
+    status = "disabled";
     pinctrl-0 = <&spi3_default>;
     pinctrl-1 = <&spi3_sleep>;
     pinctrl-names = "default", "sleep";
