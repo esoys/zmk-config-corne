@@ -2,19 +2,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/led/led.h>
 
-&zephyr_udc0 {
-    cdc_acm_uart0: cdc_acm_uart0 {
-        compatible = "zephyr,cdc-acm-uart";
-        label = "CDC_ACM_0";
-    };
-};
-
 / {
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &default_layout;
-        zephyr,console = &cdc_acm_uart0;
-        zephyr,shell-uart = &cdc_acm_uart0;
     };
 
     mock_kscan: mock_kscan {
